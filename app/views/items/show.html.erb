@@ -1,0 +1,7 @@
+<p>Title: <%= @item.title %>
+<p>Author: <%= @item.author %>
+<p>Description: <%= @item.description %>
+<p>URL: <%= @item.link %>
+
+<%= link_to "Edit #{@item.title}", items_edit_path(@item), class:"btn btn-default" %>
+<%= link_to "DELETE", items_destroy_path(@item), class: "btn btn-danger", onclick: "myFunction(event)"%>

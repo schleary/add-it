@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Addit</title>
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <%= csrf_meta_tags %>
+</head>
+<body>
+  <div class = "container">
+    <h1><%= link_to "ADDIT", root_path %></h1>
+    <br>
+    <div class = "col-md-10">
+
+
+
+
+    <%= yield %>
+    </div>
+    <div class = "col-md-2">
+      <%= link_to "Create New Post", items_new_path %><br>
+      <%= link_to "View All", items_path %>
+    </div>
+
+  </div>
+
+</body>
+</html>

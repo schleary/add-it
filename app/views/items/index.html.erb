@@ -1,0 +1,10 @@
+<p>
+</p>
+
+<% @items.each do |item| %>
+  <%= link_to "Edit", items_edit_path(item), class:"btn btn-default" %>
+  <%= item.title %>
+  <%= item.author %>
+  <%= link_to item.description, items_show_path(item) %>
+  <%= link_to "Delete", items_destroy_path(item), class: "btn btn-danger", onclick: "myFunction(event)"%><br>
+<% end %>
