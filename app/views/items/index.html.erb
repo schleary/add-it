@@ -1,22 +1,20 @@
 <table class="table">
   <tr>
-  	<td>Upvote</td>
   	<td>Votes</td>
-    <td></td>
-  	<td>Title</td>
-  	<td>Author</td>
+  	<td>Post</td>
     <td>Description</td>
-    <td>Edit</td>
+    <td></td>
   </tr>
   <% @items.each do |item| %>
     <tr>
-    	<td><button type = "button", class = "btn btn-default"><%= link_to "", items_upvote_path(item), style: "dislay: none;", class: "glyphicon glyphicon-arrow-up" %></button></td>
-    	<td><div class = "votes" ><%= item.votes %></div></td>
-      <td><img src="<%= item.link %>" height = 75px></td>
-    	<td><%= link_to item.title, items_show_path(item)  %></td>
-    	<td><%= item.author %></td>
-      <td><%= link_to "Description", items_show_path(item)%></td>
-      <td><%= link_to "Edit", items_edit_path(item), class:"btn btn-default" %></td>
+    	<td class = "col-md-1"><br>
+        <button type = "button", class = "btn btn-default"><%= link_to "", items_upvote_path(item), style: "dislay: none;", class: "glyphicon glyphicon-plus" %></button>
+        <br><div class = "votes" ><%= item.votes %></div><br>
+        <button type = "button", class = "btn btn-default"><%= link_to "", items_downvote_path(item), style: "dislay: none;", class: "glyphicon glyphicon-minus" %></button>
+      </td>
+      <td class = "col-md-1"><br><img src="<%= item.link %>" height = 100px><br><br></td>
+    	<td class = "col-md-8"><h4><%= link_to item.title, items_show_path(item)%></h4><%= item.description%><br><br>Contributed by: <%= item.author %><br><br></td>
+    	<td class = "col-md-1"><%= link_to "Edit", items_edit_path(item), class:"btn btn-default" %></td>
     </tr>
   <% end %>
 </table>

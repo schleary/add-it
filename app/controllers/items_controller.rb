@@ -51,6 +51,16 @@ class ItemsController < ApplicationController
     end
   end
 
+  def downvote
+    @item = Item.find(params[:id])
+    @item.votes -= 1
+    if @item.save
+      redirect_to items_path(@item)
+    else
+      render 'show'
+    end
+  end
+
   private
 
   def find_params

@@ -11,6 +11,7 @@ Rails.application.routes.draw do
   get      "/items/:id/delete",   to: "items#destroy", as: :items_destroy
   delete   "/items/:id",          to:	"items#destroy", as: :items_delete
   get      "/items/:id/upvote",   to: "items#upvote",  as: :items_upvote
+  get      "/items/:id/downvote", to: "items#downvote",as: :items_downvote
 
 
   # The priority is based upon order of creation: first created -> highest priority.
