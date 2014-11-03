@@ -1,5 +1,5 @@
 <div class = "col-md-1">
-  <br><button type = "button", class = "btn btn-default"><%= link_to "", items_upvote_path(@item), style: "dislay: none;", class: "glyphicon glyphicon-arrow-up" %></button>
+  <br><button type = "button", class = "btn btn-default"><%= link_to "", items_upvote_path(@item), style: "dislay: none;", class: "glyphicon glyphicon-plus" %></button>
   <div class = "votes" ><%= @item.votes %></div>
   <button type = "button", class = "btn btn-default"><%= link_to "", items_downvote_path(@item), style: "dislay: none;", class: "glyphicon glyphicon-minus" %></button>
 </div>
