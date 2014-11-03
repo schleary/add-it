@@ -1,10 +1,22 @@
-<p>
-</p>
-
-<% @items.each do |item| %>
-  <%= link_to "Edit", items_edit_path(item), class:"btn btn-default" %>
-  <%= item.title %>
-  <%= item.author %>
-  <%= link_to item.description, items_show_path(item) %>
-  <%= link_to "Delete", items_destroy_path(item), class: "btn btn-danger", onclick: "myFunction(event)"%><br>
-<% end %>
+<table class="table">
+  <tr>
+  	<td>Upvote</td>
+  	<td>Votes</td>
+    <td></td>
+  	<td>Title</td>
+  	<td>Author</td>
+    <td>Description</td>
+    <td>Edit</td>
+  </tr>
+  <% @items.each do |item| %>
+    <tr>
+    	<td><button type = "button", class = "btn btn-default"><%= link_to "", items_upvote_path(item), style: "dislay: none;", class: "glyphicon glyphicon-arrow-up" %></button></td>
+    	<td><div class = "votes" ><%= item.votes %></div></td>
+      <td><img src="<%= item.link %>" height = 75px></td>
+    	<td><%= link_to item.title, items_show_path(item)  %></td>
+    	<td><%= item.author %></td>
+      <td><%= link_to "Description", items_show_path(item)%></td>
+      <td><%= link_to "Edit", items_edit_path(item), class:"btn btn-default" %></td>
+    </tr>
+  <% end %>
+</table>

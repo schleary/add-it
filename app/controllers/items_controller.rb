@@ -1,7 +1,7 @@
 class ItemsController < ApplicationController
 
   def index
-    @items = Item.all
+    @items = Item.sort_by_votes
   end
 
   def new
@@ -10,6 +10,7 @@ class ItemsController < ApplicationController
 
   def create
     @item = Item.new(find_params)
+    @item.votes = 1
     if @item.save
       redirect_to items_path(@item)
     else
@@ -38,6 +39,16 @@ class ItemsController < ApplicationController
     @item = Item.find(params[:id])
     @item.destroy
     redirect_to items_path
+  end
+
+  def upvote
+    @item = Item.find(params[:id])
+    @item.votes += 1
+    if @item.save
+      redirect_to items_path(@item)
+    else
+      render 'show'
+    end
   end
 
   private

@@ -1,7 +1,13 @@
-<p>Title: <%= @item.title %>
-<p>Author: <%= @item.author %>
-<p>Description: <%= @item.description %>
-<p>URL: <%= @item.link %>
-
+<br><button type = "button", class = "btn btn-default"><%= link_to "", items_upvote_path(@item), style: "dislay: none;", class: "glyphicon glyphicon-arrow-up" %></button>
+<%= @item.votes %>
+<%= @item.title %>
+<br>
+<br><img src="<%= @item.link %>" height = 200px>
+<br>
+<br>Description: <%= @item.description %>
+<br>
+<br>Author: <%= @item.author %>
+<br>
+<br>
 <%= link_to "Edit #{@item.title}", items_edit_path(@item), class:"btn btn-default" %>
 <%= link_to "DELETE", items_destroy_path(@item), class: "btn btn-danger", onclick: "myFunction(event)"%>
